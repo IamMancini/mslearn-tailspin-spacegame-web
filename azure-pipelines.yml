@@ -2,9 +2,10 @@ trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-20.04'
+  name: 'Default'    # Ersetzen Sie 'Ihr_Pool_Name' durch den tatsächlichen Namen des Agent Pools
   demands:
-  - npm
+    - npm
+    - agent.name -equals AMANCINI
 
 variables:
   buildConfiguration: 'Release'
