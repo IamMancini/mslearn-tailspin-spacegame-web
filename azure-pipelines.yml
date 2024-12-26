@@ -21,6 +21,14 @@ steps:
   inputs:
     versionSpec: '5.9.1'
 
+- task: NuGetCommand@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+    vstsFeed: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'
+
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
